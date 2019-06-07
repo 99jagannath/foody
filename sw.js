@@ -1,16 +1,14 @@
-const staticCacheName = 'site-static';
+const staticCacheName = 'site-static-v1';
 const assets=[
   '/foody/',
   '/foody/index.html',
-  '/foody/pages/about.html',
-  '/foody/pages/contact.html',	
   '/foody/manifest.json',
   '/foody/app.js',
-  '/foody/js/ui.js',
-  '/foody/js/materialize.min.js',
-  '/foody/css/materialize.min.css',
-  '/foody/css/styles.css',
-  '/foody/img/dish.png',
+  '/foodyjs/ui.js',
+  '/foodyjs/materialize.min.js',
+  '/foodycss/materialize.min.css',
+  '/foodycss/styles.css',
+  '/foodyimg/dish.png',
   'https://fonts.googleapis.com/icon?family=Material+Icons',
   'https://fonts.gstatic.com/s/materialicons/v47/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ.woff2'
 ];
@@ -27,7 +25,14 @@ self.addEventListener('install', evt => {
 });
 //cheagking
 self.addEventListener('activate',evt=>{
-	console.log('service worker is activated');
+	evt.waitUntil(
+        caches.key().then(keys=>{
+        	return Promise.all(keys
+               .filter(key=>key !==staticCacheName)
+               .map(key=> caches.delete(key))
+        		)
+        })
+		);
 });
 self.addEventListener('fetch', function(event) {
   event.respondWith(
