@@ -2,13 +2,15 @@ const staticCacheName = 'site-static';
 const assets=[
   '/foody/',
   '/foody/index.html',
+  '/foody/pages/about.html',
+  '/foody/pages/contact.html',	
   '/foody/manifest.json',
   '/foody/app.js',
-  '/foodyjs/ui.js',
-  '/foodyjs/materialize.min.js',
-  '/foodycss/materialize.min.css',
-  '/foodycss/styles.css',
-  '/foodyimg/dish.png',
+  '/foody/js/ui.js',
+  '/foody/js/materialize.min.js',
+  '/foody/css/materialize.min.css',
+  '/foody/css/styles.css',
+  '/foody/img/dish.png',
   'https://fonts.googleapis.com/icon?family=Material+Icons',
   'https://fonts.gstatic.com/s/materialicons/v47/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ.woff2'
 ];
