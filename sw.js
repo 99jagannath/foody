@@ -26,11 +26,11 @@ self.addEventListener('install', evt => {
 //cheagking
 self.addEventListener('activate',evt=>{
 	evt.waitUntil(
-        caches.key().then(keys=>{
+        caches.keys().then(keys=>{
         	return Promise.all(keys
                .filter(key=>key !==staticCacheName)
                .map(key=> caches.delete(key))
-        		)
+        		);
         })
 		);
 });
