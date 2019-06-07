@@ -1,5 +1,27 @@
+const staticCacheName = 'site-static';
+const assets=[
+  '/',
+  '/index.html',
+  '/manifest.json',
+  '/app.js',
+  'js/ui.js',
+  'js/materialize.min.js',
+  'css/materialize.min.css',
+  'css/styles.css',
+  'img/dish.png',
+  'https://fonts.googleapis.com/icon?family=Material+Icons',
+  'https://fonts.gstatic.com/s/materialicons/v47/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ.woff2'
+];
+
 self.addEventListener('install', evt => {
-  console.log('service worker installed');
+
+  evt.waitUntil(
+        caches.open(staticCacheName).then(cache=>{
+        	console.log('caching all assets');
+        	cache.addAll(assets);
+        })
+  	);
+
 });
 //cheagking
 self.addEventListener('activate',evt=>{
