@@ -48,6 +48,6 @@ self.addEventListener('fetch', evt => {
           return fetchRes;
         })
       });
-    }).catch(()=>caches.match('pages/fallback.html'));
+    }).catch(() => caches.match('pages/fallback.html'));
   );
 });
