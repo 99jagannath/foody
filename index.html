@@ -9,9 +9,10 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link type="text/css" href="css/styles.css" rel="stylesheet">
   <script type="text/javascript" src="js/materialize.min.js"></script>
-  <link rel="manifest"  href="manifest.json">
-  <link rel="apple-touch-icon" href="images/icons/icon-96x96.png">
-  <meta name="apple-mobile-web-app-status-bar" content="#aa7700">
+  <link rel="manifest" href="manifest.json">
+  <!-- ios support -->
+  <link rel="apple-touch-icon" href="img/icons/icon-96x96.png">
+  <meta name="apple-mobile-web-app-status-bar" content="#FFE1C4">
   <meta name="theme-color" content="#FFE1C4">
 </head>
 <body class="grey lighten-4">
@@ -19,7 +20,7 @@
   <!-- top nav -->
   <nav class="z-depth-0">
     <div class="nav-wrapper container">
-      <a href="">Food<span>Ninja</span></a>
+      <a href="/">Food<span>Ninja</span></a>
       <span class="right grey-text text-darken-1">
         <i class="material-icons sidenav-trigger" data-target="side-menu">menu</i>
       </span>
@@ -29,57 +30,17 @@
   <!-- side nav -->
   <ul id="side-menu" class="sidenav side-menu">
     <li><a class="subheader">FOODNINJA</a></li>
-    <li><a href="" class="waves-effect">Home</a></li>
-    <li><a href="pages/about.html" class="waves-effect">About</a></li>
+    <li><a href="/" class="waves-effect">Home</a></li>
+    <li><a href="/pages/about.html" class="waves-effect">About</a></li>
     <li><div class="divider"></div></li>
-    <li><a href="pages/contact.html" class="waves-effect">
+    <li><a href="/pages/contact.html" class="waves-effect">
       <i class="material-icons">mail_outline</i>Contact</a>
     </li>
   </ul>
 
   <!-- recipes -->
   <div class="recipes container grey-text text-darken-1">
-    <h6 class="center">recipiecs</h6>
-    <div class="card-panel recipe white row">
-      <img src="img/dish.png" alt="recipe thumb">
-      <div class="recipe-details">
-        <div class="recipe-title">Edame Noodles</div>
-        <div class="recipe-ingredients">Edame Beans, Noodels, Garlic oil</div>
-      </div>
-      <div class="recipe-delete">
-        <i class="material-icons">delete_outline</i>
-      </div>
-    </div>
-    <div class="card-panel recipe white row">
-      <img src="img/dish.png" alt="recipe thumb">
-      <div class="recipe-details">
-        <div class="recipe-title">Edame Noodles</div>
-        <div class="recipe-ingredients">Edame Beans, Noodels, Garlic oil</div>
-      </div>
-      <div class="recipe-delete">
-        <i class="material-icons">delete_outline</i>
-      </div>
-    </div>
-    <div class="card-panel recipe white row">
-      <img src="img/dish.png" alt="recipe thumb">
-      <div class="recipe-details">
-        <div class="recipe-title">Edame Noodles</div>
-        <div class="recipe-ingredients">Edame Beans, Noodels, Garlic oil</div>
-      </div>
-      <div class="recipe-delete">
-        <i class="material-icons">delete_outline</i>
-      </div>
-    </div>
-    <div class="card-panel recipe white row">
-      <img src="img/dish.png" alt="recipe thumb">
-      <div class="recipe-details">
-        <div class="recipe-title">Edame Noodles</div>
-        <div class="recipe-ingredients">Edame Beans, Noodels, Garlic oil</div>
-      </div>
-      <div class="recipe-delete">
-        <i class="material-icons">delete_outline</i>
-      </div>
-    </div>
+    
   </div>
 
   <div class="center">
@@ -107,7 +68,26 @@
     </form>
   </div>
 
-  <script src="js/ui.js"></script>
+  
+  <script src="https://www.gstatic.com/firebasejs/5.11.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.11.0/firebase-firestore.js"></script>
+  <script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyB07AHCM8qUSvu4LQs6NloZkrlz16UMJ44",
+    authDomain: "foody123-44a4a.firebaseapp.com",
+    databaseURL: "https://foody123-44a4a.firebaseio.com",
+    projectId: "foody123-44a4a",
+    storageBucket: "foody123-44a4a.appspot.com",
+    messagingSenderId: "556390011035",
+    appId: "1:556390011035:web:497017da1b9483de"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  const db=firebase.firestore();
+</script>
   <script src="app.js"></script>
+  <script src="js/db.js"></script>
+  <script src="js/ui.js"></script>
 </body>
 </html>
