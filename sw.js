@@ -32,12 +32,14 @@ self.addEventListener('activate', evt => {
     caches.keys().then(keys => {
       //console.log(keys);
       return Promise.all(keys
-        .filter(key => key !== staticCacheName && key !==dynamicCacheName)
+        .filter(key => key !== staticCacheName && key !== dynamicCacheName)
         .map(key => caches.delete(key))
       );
     })
   );
 });
+
+// fetch event
 self.addEventListener('fetch', evt => {
   //console.log('fetch event', evt);
   evt.respondWith(
@@ -48,6 +50,6 @@ self.addEventListener('fetch', evt => {
           return fetchRes;
         })
       });
-    }).catch(() => caches.match('pages/fallback.html'));
+    }).catch(() => caches.match('/pages/fallback.html'))
   );
 });
